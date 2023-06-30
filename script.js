@@ -1,3 +1,11 @@
+// Pseudocode
+// Create object for lowercase, uppercase, numeric and special.
+// Prompt for user input password length.
+// Check the prompt that a number and length criteria.
+// User confirmation for include uppercase, lowercase, numeric and special character
+// Check user confirm atleat one criteria.
+// Generate the password 
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -20,4 +28,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
 
