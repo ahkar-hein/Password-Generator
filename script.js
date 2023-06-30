@@ -16,7 +16,7 @@ var Characters = {
   special: "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?"
 };
 // Write password to the #password input
-function writePassword() {
+function generatePassword() {
   // Prompt for password criteria
   var passwordCriteria = parseInt(prompt("Enter the length of the password"));
   // Check prompt if it is not a number or length of password is between 8 and 129.
@@ -34,12 +34,36 @@ function writePassword() {
     alert("Please select at least one character type.");
     return;
   }
-  
+
+  // This code make array and selected the character type.
+    var characterCriteria = "";
+    if (includeUppercase) {
+      characterCriteria += Characters.uppercase;
+    }
+    if (includeLowercase) {
+      characterCriteria += Characters.lowercase;
+    }
+    if (includeNumeric) {
+      characterCriteria += Characters.numeric;
+    }
+    if (includeSpecial) {
+      characterCriteria += Characters.special;
+    }
+
+  // Generate the password
+  // Create variable of random password
+   var password = "";
+  //  This for loop generates the desired number of characters for the password.
+  for (let i = 0; i < passwordCriteria; i++) {
+    var generatepwd = Math.floor(Math.random() * characterCriteria.length);
+    password += characterCriteria[generatepwd];
+  }
+  return password;
+}
+function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
